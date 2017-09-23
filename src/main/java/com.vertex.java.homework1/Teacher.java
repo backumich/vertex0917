@@ -1,8 +1,10 @@
+package com.vertex.java.homework1;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Teacher {
-    private ArrayList<Marker> list = new ArrayList<>();
+    private ArrayList<Marker> list = new ArrayList();
 
     public void takeMarker(Marker marker) {
         if (marker.getTeacher() == null) {

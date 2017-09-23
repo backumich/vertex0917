@@ -1,3 +1,6 @@
+package com.vertex.java.homework1;
+
+import com.vertex.java.homework1.Teacher;
 
 public class Marker {
     private String color;
