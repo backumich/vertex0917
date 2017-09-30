@@ -1,4 +1,4 @@
-package com.vertex.java.homework1.patterns;
+package com.vertex.java.patterns;
 
 public class UserWithBuilder {
 

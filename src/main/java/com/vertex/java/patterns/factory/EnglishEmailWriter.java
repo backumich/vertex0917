@@ -1,6 +1,6 @@
-package com.vertex.java.homework1.patterns.factory;
+package com.vertex.java.patterns.factory;
 
-import com.vertex.java.homework1.patterns.UserWithBuilder;
+import com.vertex.java.patterns.UserWithBuilder;
 
 public class EnglishEmailWriter implements EmailWriter{
 
