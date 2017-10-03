@@ -1,4 +1,4 @@
-
+package com.vertex.java.homework1.EugeniyaDzhu.TeacherWithMarkers;
 
 import java.io.FileReader;
 import java.util.Scanner;
@@ -7,7 +7,7 @@ class Teacher {
 
     public static void writeTextToConsole() throws Exception{
 
-        FileReader fr= new FileReader("vertex0917/src/main/java/com.vertex.java.homework1/EugeniyaDzhu/TeacherWithMarkers/Text.txt");
+        FileReader fr= new FileReader("src/main/java/com.vertex.java.homework1/EugeniyaDzhu/TeacherWithMarkers/Text.txt");
         Scanner scan = new Scanner(fr);
 
         String phrase = "";
