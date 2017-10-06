@@ -21,24 +21,24 @@ public class Circle implements Figure {
         return radius;
     }
 
-    private Circle(){
+    Circle(){
 
     };
 
-    public static class CircleBilder {
+    public static class Bilder {
         public Circle instance;
 
-        public CircleBilder(){
+        public Bilder(){
             this.instance = new Circle();
         }
 
-        public CircleBilder withCentre(){
+        public Bilder withCentre(){
             Point point = new Point();
             instance.centre = point;
             return this;
         }
 
-        public CircleBilder withRadius(){
+        public Bilder withRadius(){
             int radius = (int) Math.random() * MAX_RADIUS + 1;
             return this;
         }
@@ -55,7 +55,7 @@ public class Circle implements Figure {
     }
 
 //    public static void main(String[] args) {
-//        Circle circle = new CircleBilder().bild();
+//        Circle circle = new Bilder().bild();
 //
 //    }
 }

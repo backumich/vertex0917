@@ -1,7 +1,5 @@
 package com.vertex.java.homework1.EugeniyaDzhu.ArtistAndFigure;
 
-import com.vertex.java.homework1.EugeniyaDzhu.ArtistAndFigure.Circle;
-
 public class Oval implements Figure {
 
     static final int MAX_RADIUS = 1000;
@@ -31,15 +29,15 @@ public class Oval implements Figure {
 
     };
 
-    public static class OvalBilder {
+    public static class Bilder {
         public Oval instance;
 
-        public OvalBilder(){
+        public Bilder(){
             this.instance = new Oval();
         }
 
-        public OvalBilder withCircle(){
-            Circle circle = new Circle.CircleBilder()
+        public Bilder withCircle(){
+            Circle circle = new Circle.Bilder()
                                 .withCentre()
                                 .withRadius()
                                 .bild();
@@ -47,7 +45,7 @@ public class Oval implements Figure {
             return this;
         }
 
-        public OvalBilder withHeight(){
+        public Bilder withHeight(){
             int radius = (int) Math.random() * MAX_RADIUS + 1;
             return this;
         }

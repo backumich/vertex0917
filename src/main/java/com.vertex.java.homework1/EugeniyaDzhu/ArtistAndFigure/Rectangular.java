@@ -31,15 +31,15 @@ public class Rectangular implements Figure {
 
     };
 
-    public static class RectangularBilder {
+    public static class Bilder {
         public Rectangular instance;
 
-        public RectangularBilder(){
+        public Bilder(){
             this.instance = new Rectangular();
         }
 
-        public RectangularBilder withCircle(){
-            Square square = new Square.SquareBilder()
+        public Bilder withSquare(){
+            Square square = new Square.Bilder()
                     .withCentre()
                     .withSide()
                     .bild();
@@ -47,7 +47,7 @@ public class Rectangular implements Figure {
             return this;
         }
 
-        public RectangularBilder withHeight(){
+        public Bilder withHeight(){
             int radius = (int) Math.random() * MAX_SIDE + 1;
             return this;
         }

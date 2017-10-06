@@ -24,20 +24,20 @@ public class Square implements Figure {
 
     };
 
-    public static class SquareBilder {
+    public static class Bilder {
         public Square instance;
 
-        public SquareBilder(){
+        public Bilder(){
             this.instance = new Square();
         }
 
-        public SquareBilder withCentre(){
+        public Bilder withCentre(){
             Point point = new Point();
             instance.centre = point;
             return this;
         }
 
-        public SquareBilder withSide(){
+        public Bilder withSide(){
             int side = (int) Math.random() * MAX_SIDE + 1;
             return this;
         }
