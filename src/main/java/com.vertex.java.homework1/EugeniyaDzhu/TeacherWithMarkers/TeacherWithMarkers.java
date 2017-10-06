@@ -41,15 +41,15 @@ class Teacher {
  }
 
  class Marker {
-    public static final String[] COLORSET = {"red", "orange", "yellow", "green", "blue", "purple", "black"};
-    public static final int MARKERCAPACITY = 10;
+    public static final String[] COLOR_SET = {"red", "orange", "yellow", "green", "blue", "purple", "black"};
+    public static final int MARKER_CAPACITY = 10;
 
     private String color;
     private int capacity;
 
     void setColorAndCapacity(){
-       color = COLORSET[(int) ( Math.random() * 7 )];
-       capacity = (int) ( Math.random() * MARKERCAPACITY + 1 );
+       color = COLOR_SET[(int) ( Math.random() * 7 )];
+       capacity = (int) ( Math.random() * MARKER_CAPACITY + 1 );
     }
 
     int printText (String phrase) {
