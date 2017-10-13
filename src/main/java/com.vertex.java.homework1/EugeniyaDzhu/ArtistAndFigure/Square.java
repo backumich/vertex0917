@@ -38,7 +38,8 @@ public class Square implements Figure {
         }
 
         public Bilder withSide(){
-            int side = (int) Math.random() * MAX_SIDE + 1;
+            int side = (int)( Math.random() * MAX_SIDE) + 1;
+            instance.side = side;
             return this;
         }
 
@@ -50,7 +51,8 @@ public class Square implements Figure {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Square -->" +
+                "bottom left corner " + centre.toString() +
+                ", side " + side;
     }
-
 }

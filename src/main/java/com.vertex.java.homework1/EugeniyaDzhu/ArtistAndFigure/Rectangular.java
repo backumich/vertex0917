@@ -48,7 +48,8 @@ public class Rectangular implements Figure {
         }
 
         public Bilder withHeight(){
-            int radius = (int) Math.random() * MAX_SIDE + 1;
+            int height = (int) (Math.random() * MAX_SIDE) + 1;
+            instance.height = height;
             return this;
         }
 
@@ -56,5 +57,14 @@ public class Rectangular implements Figure {
             return instance;
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangular -->" +
+                "bottom left corner " + square.getCentre().toString() +
+                ", side " + square.getSide() +
+                ", height " + height +
+                '}';
     }
 }

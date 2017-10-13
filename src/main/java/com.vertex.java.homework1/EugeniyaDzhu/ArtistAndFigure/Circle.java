@@ -40,6 +40,7 @@ public class Circle implements Figure {
 
         public Bilder withRadius(){
             int radius = (int) ((Math.random() * MAX_RADIUS))+ 1;
+            instance.radius = radius;
             return this;
         }
 

@@ -17,10 +17,6 @@ public class Oval implements Figure {
         return null;
     }
 
-//    public int getWidth() {
-//        return circle.getRadius();
-//    }
-
     public int getHeight() {
         return height;
     }
@@ -46,7 +42,8 @@ public class Oval implements Figure {
         }
 
         public Bilder withHeight(){
-            int radius = (int) Math.random() * MAX_RADIUS + 1;
+            int height = (int) (Math.random() * MAX_RADIUS) + 1;
+            instance.height = height;
             return this;
         }
 
@@ -55,4 +52,14 @@ public class Oval implements Figure {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "Oval -->" +
+                "centre " + this.circle.getCentre().toString() +
+                ", radius " + this.circle.getRadius() +
+                ", height " + height ;
+
+    }
+
 }

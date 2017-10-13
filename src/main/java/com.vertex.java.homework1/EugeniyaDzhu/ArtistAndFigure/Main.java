@@ -6,13 +6,10 @@ public class Main {
         Artist artist = new Artist();
         System.out.println("");
 
-        Circle circle = new Circle.Bilder().withCentre().withRadius().bild();
-        System.out.println(circle.toString());
-
         for (int i = 0; i < 100; i++) {
             System.out.println(artist.figures[i].toString());
         }
-        System.out.println("cdgc");
+
     }
 
 }

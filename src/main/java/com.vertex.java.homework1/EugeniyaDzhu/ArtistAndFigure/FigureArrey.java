@@ -5,10 +5,20 @@ import java.lang.reflect.Array;
 import com.vertex.java.homework1.EugeniyaDzhu.ArtistAndFigure.Circle;
 import com.vertex.java.homework1.EugeniyaDzhu.ArtistAndFigure.Square;
 
-public class FigureArrey {
+public final class FigureArrey {
 
     public static final int MAX_COUNT_FIGURE = 100;
     public static final String[] FIGURE_TYPES = {"Circle", "Oval", "Square", "Rectangular"};
+
+    private FigureArrey(){}
+
+    private static class Holder{
+        private static final FigureArrey instanse = new FigureArrey();
+    }
+
+    public static FigureArrey getInstanse(){
+        return Holder.instanse;
+    }
 
     public static Figure getFigure(String figureType){
 
