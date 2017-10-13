@@ -50,7 +50,7 @@ public class FigureArrey {
 
         Figure[] figureArray = new Figure[MAX_COUNT_FIGURE];
         for (int i = 0; i < MAX_COUNT_FIGURE; i++) {
-            figureArray[i] = getFigure(FIGURE_TYPES[(int) Math.random() * 4] );
+            figureArray[i] = getFigure(FIGURE_TYPES[(int) (Math.random() * 4)] );
         }
 
         return figureArray;

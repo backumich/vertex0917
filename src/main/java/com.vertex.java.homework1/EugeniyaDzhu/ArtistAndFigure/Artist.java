@@ -4,6 +4,7 @@ import com.vertex.java.homework1.EugeniyaDzhu.ArtistAndFigure.FigureArrey;
 
 public class Artist {
 
-    Figure[] figures = new Figure[100]
-    }
+    Figure[] figures = FigureArrey.getFigureArrey();
+
+
 }

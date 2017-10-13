@@ -39,7 +39,7 @@ public class Circle implements Figure {
         }
 
         public Bilder withRadius(){
-            int radius = (int) Math.random() * MAX_RADIUS + 1;
+            int radius = (int) ((Math.random() * MAX_RADIUS))+ 1;
             return this;
         }
 
@@ -51,7 +51,7 @@ public class Circle implements Figure {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Circle --> centre " + centre.toString() + ", radius " + radius ;
     }
 
 //    public static void main(String[] args) {

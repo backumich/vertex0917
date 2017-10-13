@@ -25,7 +25,12 @@ public final class Point {
 //    }
 
     Point(){
-        xCoordinate = (int) Math.random() * MAX_X;
-        yCoordinate = (int) Math.random() * MAX_Y;
+        xCoordinate = (int) (Math.random() * MAX_X);
+        yCoordinate = (int) (Math.random() * MAX_Y);
+    }
+
+    @Override
+    public String toString() {
+        return "(" + xCoordinate + ", " + yCoordinate + ")";
     }
 }
