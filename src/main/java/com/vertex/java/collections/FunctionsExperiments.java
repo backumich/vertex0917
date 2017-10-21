@@ -15,10 +15,11 @@ public class FunctionsExperiments {
 
     public static void main(String[] args) {
 
-//        countLettersInWords();
+//        optionalExample();
+        countLettersInWords();
 //        checkWhatWouldBeIfGiveNullToOptional();
 
-        experimentWithNewStreamFeatures();
+//        experimentWithNewStreamFeatures();
 
     }
 
@@ -31,13 +32,17 @@ public class FunctionsExperiments {
 
     private static void countLettersInWords() {
 
-//        Map<Object, Long> collect =
+        Map<Object, Long> collect =
         words.stream()
-        .map(String::toCharArray)
-        .flatMap(Stream::of)
-        .forEach(System.out::println);
-//                .collect(groupingBy(o -> o, counting()));
+        .flatMapToInt(String::chars)
+                .mapToObj(charr -> String.valueOf((char) charr))
+//        .forEach(System.out::println);
+                .collect(groupingBy(o -> o, counting()));
 
+        System.out.println(collect);
+    }
+
+    private static void optionalExample() {
         Optional<String> any = words.stream()
                 .peek(System.out::println)
                 .skip(10)
