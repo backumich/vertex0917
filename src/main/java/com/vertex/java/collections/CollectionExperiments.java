@@ -1,4 +1,4 @@
-package com.vertex.java;
+package com.vertex.java.collections;
 
 import java.util.*;
 import java.util.stream.Collectors;
