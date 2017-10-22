@@ -6,6 +6,15 @@ public class Listener implements Comparable<Listener> {
     private int lengthOfMustache;
     private Sex sex;
 
+    @Override
+    public String toString() {
+        return "Listener{" +
+                "sex=" + sex +
+                (sex == Sex.LADY ? ", numberOfBrooches=" + numberOfBrooches : ", lengthOfMustache=" + lengthOfMustache)
+                +
+                "}";
+    }
+
     public Listener() {
         this.sex = Sex.LADY;
     }
@@ -28,13 +37,19 @@ public class Listener implements Comparable<Listener> {
 
         int toReturn = 0;
 
-        if (o == null) {toReturn = 1;};
+        if (o == null) {
+            toReturn = 1;
+            System.out.println("Null");
+        };
 
         int comparableField = numberOfBrooches;
         int oComparableField = o.getNumberOfBrooches();
 
         if (sex == Sex.GENTLEMAN) {
             comparableField = lengthOfMustache;
+        };
+
+        if (o.sex == Sex.GENTLEMAN) {
             oComparableField = o.getLengthOfMustache();
         };
 
