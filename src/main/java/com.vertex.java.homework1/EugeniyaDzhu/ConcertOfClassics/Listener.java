@@ -57,7 +57,7 @@ public class Listener implements Comparable<Listener> {
             toReturn = sex.compareTo(o.sex);
         }
         else{
-            toReturn = comparableField > oComparableField ? 1 : -1;
+            toReturn = comparableField > oComparableField ? -1 : 1;
         };
 
         return toReturn;
@@ -87,5 +87,10 @@ public class Listener implements Comparable<Listener> {
 
     public void setNumberOfBrooches(int numberOfBrooches) {
         this.numberOfBrooches = numberOfBrooches;
+    }
+
+    public Ticket getNewTicket(){
+        Ticket ticket = new Ticket();
+        return ticket;
     }
 }

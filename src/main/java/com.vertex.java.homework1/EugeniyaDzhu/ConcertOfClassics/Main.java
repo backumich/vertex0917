@@ -3,15 +3,23 @@ package com.vertex.java.homework1.EugeniyaDzhu.ConcertOfClassics;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
+        List listenerList = makeAndPrintListenerList();
+        listenerList.stream()
+                .forEachOrdered(System.out::println);
+
+        //Cash cash = new Cash(listenerList);
+        Map<Ticket,Listener> cashMap = new Cash(listenerList).getMap();
+        cashMap.forEach(Cash::printEntry);
+
+    }
+
+    public static List makeAndPrintListenerList() throws IOException{
         FileReader fr= new FileReader("src/main/java/com.vertex.java.homework1/EugeniyaDzhu/ConcertOfClassics/LadiesAndGentlemen.txt");
         Scanner scan = new Scanner(fr);
 
@@ -29,19 +37,19 @@ public class Main {
                 string = string.substring(5);
             };
 
-            System.out.println(sex + " " + Integer.parseInt(string));
+            //System.out.println(sex + " " + Integer.parseInt(string));
             Listener listener = new Listener(Sex.valueOf(sex) , Integer.parseInt(string));
             listenerList.add(listener);
-            listenerList = listenerList.stream()
-                    .sorted(Listener::compareTo)
-                    .collect(Collectors.toList());
-
-            listenerList.stream()
-                    .forEachOrdered(System.out::println);
 
         }
 
 
         fr.close();
+
+        listenerList = listenerList.stream()
+                .sorted(Listener::compareTo)
+                .collect(Collectors.toList());
+
+        return listenerList;
     }
 }
