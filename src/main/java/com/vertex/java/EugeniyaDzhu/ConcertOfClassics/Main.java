@@ -1,5 +1,7 @@
 package com.vertex.java.EugeniyaDzhu.ConcertOfClassics;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -20,30 +22,43 @@ public class Main {
         Map<Ticket,Listener> cashMap = new Cash(listenerList).getMap();
         cashMap.forEach(Cash::printEntry);
 
+        defineTheWinners(cashMap, listenerList);
+
+        cashMap.entrySet().stream()
+                .filter(l -> l.getKey().isWinner())
+                .forEach((entry) -> {
+                    System.out.println("Ticket #" + entry.getKey().getNumberOfTicket()
+                                + (entry.getValue().getSex() == Sex.LADY ? ", number of brooches " + entry.getValue().getNumberOfBrooches(): ", length of mustache " +entry.getValue().getLengthOfMustache()));
+                });
+
+        HashSet<Listener> moreThenTwoTicketsListenerSet = FindBoughtMoreThenTwoTickets(cashMap.values().stream().collect(Collectors.toList()));
+        moreThenTwoTicketsListenerSet.stream().forEach(System.out::println);
+    }
+
+    public static void defineTheWinners(Map<Ticket, Listener> map, List<Listener> listenerList) {
         int minNumberOfBrooches = listenerList.stream()
                 .filter(l -> l.getSex() == Sex.LADY)
                 .max(Listener::compareTo).get().getNumberOfBrooches();
 
-        cashMap.entrySet().stream()
+        map.entrySet().stream()
                 .filter(l -> l.getValue().getSex() == Sex.LADY)
                 .filter(l -> l.getValue().getNumberOfBrooches() == minNumberOfBrooches)
                 .forEach((entry) -> {
-                        entry.getKey().setWinner(true);
-                        System.out.println("Ticket #" + entry.getKey().getNumberOfTicket() + ", number of brooches " + entry.getValue().getNumberOfBrooches());
-                    });
+                    entry.getKey().setWinner(true);
+                    //System.out.println("Ticket #" + entry.getKey().getNumberOfTicket() + ", number of brooches " + entry.getValue().getNumberOfBrooches());
+                });
 
         int minLengthOfMustache = listenerList.stream()
                 .filter(l -> l.getSex() == Sex.GENTLEMAN)
                 .max(Listener::compareTo).get().getLengthOfMustache();
 
-        cashMap.entrySet().stream()
+        map.entrySet().stream()
                 .filter(l -> l.getValue().getSex() == Sex.GENTLEMAN)
                 .filter(l -> l.getValue().getLengthOfMustache() == minLengthOfMustache)
                 .forEach((entry) -> {
-                        entry.getKey().setWinner(true);
-                        System.out.println("Ticket #" + entry.getKey().getNumberOfTicket() + ", length of mustache " + entry.getValue().getLengthOfMustache());
-                    });
-
+                    entry.getKey().setWinner(true);
+                    //System.out.println("Ticket #" + entry.getKey().getNumberOfTicket() + ", length of mustache " + entry.getValue().getLengthOfMustache());
+                });
     }
 
     public static List makeListenerList() throws IOException{
@@ -69,6 +84,9 @@ public class Main {
 
                 Listener listener = new Listener(Sex.valueOf(sex), Integer.parseInt(string));
                 listenerList.add(listener);
+                if (Math.random() < 0.3) {listenerList.add(listener);};
+                if (Math.random() < 0.3) {listenerList.add(listener);};
+                if (Math.random() < 0.3) {listenerList.add(listener);};
 
             }
         }catch (FileNotFoundException ex) {
@@ -89,5 +107,22 @@ public class Main {
         }
 
         return listenerList;
+    }
+
+    public static HashSet FindBoughtMoreThenTwoTickets(List<Listener> listenerList) {
+
+        HashSet<Listener> listenerSet = new HashSet<Listener>();
+        HashSet<Listener> moreThenOneTicketListenerSet = new HashSet<Listener>();
+        HashSet<Listener> moreThenTwoTicketsListenerSet = new HashSet<Listener>();
+
+        Iterator<Listener> iterator = listenerList.iterator();
+        while (iterator.hasNext()){
+            Listener listener = iterator.next();
+            if (moreThenOneTicketListenerSet.contains(listener)) {moreThenTwoTicketsListenerSet.add(listener);}
+            if (listenerSet.contains(listener)) {moreThenOneTicketListenerSet.add(listener);}
+            listenerSet.add(listener);
+        }
+
+        return moreThenTwoTicketsListenerSet;
     }
 }

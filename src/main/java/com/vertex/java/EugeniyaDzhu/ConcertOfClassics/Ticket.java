@@ -11,10 +11,15 @@ public class Ticket {
     private int seat;
     private int row;
     private int numberOfTicket;
+
     private boolean winner;
 
     public void setWinner(boolean winner) {
         this.winner = winner;
+    }
+
+    public boolean isWinner() {
+        return winner;
     }
 
     public int getNumberOfTicket() {
