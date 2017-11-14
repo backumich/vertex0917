@@ -1,6 +1,8 @@
 package com.vertex.java.EugeniyaDzhu.ConcertOfClassics;
 
-public class Listener implements Comparable<Listener> {
+import java.util.Comparator;
+
+public class Listener implements Comparable<Listener> , Comparator<Listener>{
 
     private int numberOfBrooches;
     private int lengthOfMustache;
@@ -40,6 +42,7 @@ public class Listener implements Comparable<Listener> {
         if (o == null) {
             toReturn = 1;
             System.out.println("Null");
+            return toReturn;
         };
 
         int comparableField = numberOfBrooches;
@@ -49,12 +52,12 @@ public class Listener implements Comparable<Listener> {
             comparableField = lengthOfMustache;
         };
 
-        if (o.sex == Sex.GENTLEMAN) {
+        if (o.getSex() == Sex.GENTLEMAN) {
             oComparableField = o.getLengthOfMustache();
         };
 
         if (comparableField == oComparableField){
-            toReturn = sex.compareTo(o.sex);
+            toReturn = sex.compareTo(o.getSex());
         }
         else{
             toReturn = comparableField > oComparableField ? -1 : 1;
@@ -92,5 +95,45 @@ public class Listener implements Comparable<Listener> {
     public Ticket getNewTicket(){
         Ticket ticket = new Ticket();
         return ticket;
+    }
+
+    @Override
+    public int compare(Listener o1, Listener o2) {
+
+        int toReturn = 0;
+
+        if (o1 == null) {
+            System.out.println("Null");
+            if (o2 == null) {
+                System.out.println("Null");
+                return 0;
+            };
+            return -1;
+        };
+        if (o2 == null) {
+            System.out.println("Null");
+            return 0;
+        };
+
+        int firstComparableField  = o1.getNumberOfBrooches();
+        int secondComparableField = o2.getNumberOfBrooches();
+
+        if (o1.getSex() == Sex.GENTLEMAN) {
+            firstComparableField = o1.getLengthOfMustache();
+        };
+
+        if (o2.getSex() == Sex.GENTLEMAN) {
+            secondComparableField = o1.getLengthOfMustache();
+        };
+
+        if (firstComparableField == secondComparableField){
+            toReturn = o1.getSex().compareTo(o2.getSex());
+        }
+        else{
+            toReturn = firstComparableField > secondComparableField ? -1 : 1;
+        };
+
+        return toReturn;
+
     }
 }

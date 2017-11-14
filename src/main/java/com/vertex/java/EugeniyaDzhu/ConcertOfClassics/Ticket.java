@@ -7,10 +7,19 @@ public class Ticket {
 
     static int occupiedSeats = 1;
     static int occupiedRows = 1;
+    static int occupiedNumberOfTicket = 1;
     private int seat;
     private int row;
-    private String numberOfTicket;
+    private int numberOfTicket;
     private boolean winner;
+
+    public void setWinner(boolean winner) {
+        this.winner = winner;
+    }
+
+    public int getNumberOfTicket() {
+        return numberOfTicket;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -21,6 +30,7 @@ public class Ticket {
 
         if (seat != ticket.seat) return false;
         if (row != ticket.row) return false;
+
         return numberOfTicket == ticket.numberOfTicket;
     }
 
@@ -28,7 +38,7 @@ public class Ticket {
     public int hashCode() {
         int result = seat;
         result = 31 * result + row;
-        result = 31 * result + numberOfTicket.hashCode();
+        result = 31 * result + numberOfTicket;
         return result;
     }
 
@@ -36,7 +46,7 @@ public class Ticket {
 
         seat = occupiedSeats;
         row = occupiedRows;
-        numberOfTicket = String.valueOf(row) + String.valueOf(seat);
+        numberOfTicket = occupiedNumberOfTicket;
 
         if (occupiedSeats == MAX_SEATS) {
             occupiedRows += 1;
@@ -44,6 +54,8 @@ public class Ticket {
         } else {
             occupiedSeats += 1;
         }
+
+        occupiedNumberOfTicket +=1;
 
         if (occupiedRows > MAX_ROWS) {
             System.out.println("Places are over, come again next time!");
