@@ -1,4 +1,4 @@
-package com.vertex.java.homework1.EugeniyaDzhu.TeacherWithMarkers;
+package com.vertex.java.EugeniyaDzhu.TeacherWithMarkers;
 
 public class TeacherWithMarkersMain {
 

@@ -1,9 +1,9 @@
-package com.vertex.java.homework1.EugeniyaDzhu.ArtistAndFigure;
+package com.vertex.java.EugeniyaDzhu.ArtistAndFigure;
 
 import java.lang.reflect.Array;
 
-import com.vertex.java.homework1.EugeniyaDzhu.ArtistAndFigure.Circle;
-import com.vertex.java.homework1.EugeniyaDzhu.ArtistAndFigure.Square;
+import com.vertex.java.EugeniyaDzhu.ArtistAndFigure.Circle;
+import com.vertex.java.EugeniyaDzhu.ArtistAndFigure.Square;
 
 public final class FigureArrey {
 

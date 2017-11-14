@@ -1,4 +1,4 @@
-package com.vertex.java.homework1.EugeniyaDzhu.TestTasksentences;
+package com.vertex.java.EugeniyaDzhu.TestTasksentences;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
@@ -13,8 +13,7 @@ public class TestTasksentences  {
 
         try {
             byte[] utf8Bytes = phrase1.getBytes("UTF8");
-            String phrase3 = new String(utf8Bytes,"UTF8");
-            phrase2 = phrase3;
+            phrase2 = new String(utf8Bytes,"UTF8");
             //System.out.println(phrase2);
         }
         catch (UnsupportedEncodingException e) {
@@ -34,7 +33,6 @@ public class TestTasksentences  {
 
 class Letter {
 
-    public static int qty;
     public char value;
 
     public Letter(char c) {
@@ -57,21 +55,13 @@ class Punctuation {
     }
 
     public static boolean isPunctuationMark(char a){
-        if (a=='.'| a==','| a==';'| a==':'| a==')'| a=='('| a=='['| a==']'| a=='{'| a=='}'| a=='!' | a=='?'| a==' ') {
-            return true;
-        }
-        else{
-            return false;
-        }
+       return (a=='.'| a==','| a==';'| a==':'| a==')'| a=='('| a=='['| a==']'| a=='{'| a=='}'| a=='!' | a=='?'| a==' ');
+
     }
 
     public static boolean isEndOfsentenceMark(char a){
-        if (a=='.'| a=='!' | a=='?') {
-            return true;
-        }
-        else{
-            return false;
-        }
+        return (a=='.'| a=='!' | a=='?');
+
     }
 
     public static int getQuestionMarkQty(){
@@ -81,6 +71,7 @@ class Punctuation {
     }
 
 }
+
 class Punctuations {
 
     //int qty;
@@ -105,15 +96,14 @@ class Punctuations {
 class Word {
 
     //int qty;
-    Letter[] value = new Letter[100];
+    private Letter[] value = new Letter[100];
     int length;
     static int pWord =0;
 
     public Word (String s) {
 
         for (int i = 0; i < s.length(); i++) {
-            Letter l = new Letter(s.charAt(i));
-            value[i] = l;
+            value[i] = new Letter(s.charAt(i));
         }
         length = s.length();
 
@@ -134,10 +124,9 @@ class Word {
 
 class Sentence {
 
-    public int wordQty;
-    int punctuationQty;
+    private int wordQty;
     Word[] value = new Word[100];
-    Punctuations[] punctuationMark = new Punctuations[100];
+    private Punctuations[] punctuationMark = new Punctuations[100];
 
     public Sentence(String s) {
 

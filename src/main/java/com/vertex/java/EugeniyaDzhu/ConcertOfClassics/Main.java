@@ -1,4 +1,4 @@
-package com.vertex.java.homework1.EugeniyaDzhu.ConcertOfClassics;
+package com.vertex.java.EugeniyaDzhu.ConcertOfClassics;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,7 +20,7 @@ public class Main {
     }
 
     public static List makeAndPrintListenerList() throws IOException{
-        FileReader fr= new FileReader("src/main/java/com.vertex.java.homework1/EugeniyaDzhu/ConcertOfClassics/LadiesAndGentlemen.txt");
+        FileReader fr= new FileReader("src/main/java/com/vertex/java/EugeniyaDzhu/ConcertOfClassics/LadiesAndGentlemen.txt");
         Scanner scan = new Scanner(fr);
 
         List<Listener> listenerList = new ArrayList();

@@ -1,4 +1,4 @@
-package com.vertex.java.homework1.EugeniyaDzhu.ConcertOfClassics;
+package com.vertex.java.EugeniyaDzhu.ConcertOfClassics;
 
 import java.util.List;
 import java.util.Map;

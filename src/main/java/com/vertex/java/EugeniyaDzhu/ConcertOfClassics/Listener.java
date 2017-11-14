@@ -1,4 +1,4 @@
-package com.vertex.java.homework1.EugeniyaDzhu.ConcertOfClassics;
+package com.vertex.java.EugeniyaDzhu.ConcertOfClassics;
 
 public class Listener implements Comparable<Listener> {
 

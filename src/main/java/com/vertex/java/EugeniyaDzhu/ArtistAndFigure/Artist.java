@@ -1,6 +1,6 @@
-package com.vertex.java.homework1.EugeniyaDzhu.ArtistAndFigure;
+package com.vertex.java.EugeniyaDzhu.ArtistAndFigure;
 
-import com.vertex.java.homework1.EugeniyaDzhu.ArtistAndFigure.FigureArrey;
+import com.vertex.java.EugeniyaDzhu.ArtistAndFigure.FigureArrey;
 
 public class Artist implements ArtistInterfase{
 

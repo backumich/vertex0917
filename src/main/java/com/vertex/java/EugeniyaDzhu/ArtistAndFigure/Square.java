@@ -1,4 +1,4 @@
-package com.vertex.java.homework1.EugeniyaDzhu.ArtistAndFigure;
+package com.vertex.java.EugeniyaDzhu.ArtistAndFigure;
 
 public class Square implements Figure {
 
