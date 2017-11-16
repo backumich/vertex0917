@@ -1,13 +1,11 @@
 package com.vertex.java.EugeniyaDzhu.ConcertOfClassics;
 
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Cash {
-
+    
     private Map<Ticket, Listener> map;
 
     public Map<Ticket, Listener> getMap() {
@@ -19,7 +17,20 @@ public class Cash {
     }
 
     public Cash(List<Listener> listenerList) {
-        map = listenerList.stream().collect(Collectors.toMap(Listener::getNewTicket, l->l));
+
+        //Some listeners bought several tickets
+        Iterator<Listener> iterator = listenerList.iterator();
+        List<Listener> listenerListForFewTickets = new ArrayList<Listener>();
+        while (iterator.hasNext()){
+
+            Listener listener = iterator.next();
+            listenerListForFewTickets.add(listener);
+            if (Math.random() < 0.3) {listenerListForFewTickets.add(listener);}
+            if (Math.random() < 0.3) {listenerListForFewTickets.add(listener);}
+            if (Math.random() < 0.3) {listenerListForFewTickets.add(listener);}
+        }
+
+        map = listenerListForFewTickets.stream().collect(Collectors.toMap(Listener::getNewTicket, l->l));
     }
 
     public static void printEntry(Ticket ticket, Listener listener){

@@ -18,6 +18,7 @@ public class Ticket {
         this.winner = winner;
     }
 
+
     public boolean isWinner() {
         return winner;
     }

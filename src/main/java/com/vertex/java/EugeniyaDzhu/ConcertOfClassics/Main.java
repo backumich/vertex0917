@@ -84,9 +84,6 @@ public class Main {
 
                 Listener listener = new Listener(Sex.valueOf(sex), Integer.parseInt(string));
                 listenerList.add(listener);
-                if (Math.random() < 0.3) {listenerList.add(listener);};
-                if (Math.random() < 0.3) {listenerList.add(listener);};
-                if (Math.random() < 0.3) {listenerList.add(listener);};
 
             }
         }catch (FileNotFoundException ex) {
