@@ -2,7 +2,7 @@ package com.vertex.java.EugeniyaDzhu.ConcertOfClassics;
 
 import java.util.Comparator;
 
-public class Listener implements Comparable<Listener> , Comparator<Listener>{
+public class Listener implements Comparable<Listener> , Comparator<Listener>, ListenerInterfase{
 
     private int numberOfBrooches;
     private int lengthOfMustache;
@@ -15,6 +15,26 @@ public class Listener implements Comparable<Listener> , Comparator<Listener>{
                 (sex == Sex.LADY ? ", numberOfBrooches=" + numberOfBrooches : ", lengthOfMustache=" + lengthOfMustache)
                 +
                 "}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Listener listener = (Listener) o;
+
+        if (numberOfBrooches != listener.numberOfBrooches) return false;
+        if (lengthOfMustache != listener.lengthOfMustache) return false;
+        return sex == listener.sex;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = numberOfBrooches;
+        result = 31 * result + lengthOfMustache;
+        result = 31 * result + (sex != null ? sex.hashCode() : 0);
+        return result;
     }
 
     public Listener() {
@@ -135,5 +155,10 @@ public class Listener implements Comparable<Listener> , Comparator<Listener>{
 
         return toReturn;
 
+    }
+
+    public static Cheater toCheater(Listener listener){
+        Cheater cheater = new Cheater(listener);
+        return cheater;
     }
 }

@@ -25,9 +25,9 @@ public class Cash {
 
             Listener listener = iterator.next();
             listenerListForFewTickets.add(listener);
-            if (Math.random() < 0.3) {listenerListForFewTickets.add(listener);}
-            if (Math.random() < 0.3) {listenerListForFewTickets.add(listener);}
-            if (Math.random() < 0.3) {listenerListForFewTickets.add(listener);}
+            if (Math.random() < 0.2) {listenerListForFewTickets.add(listener);}
+            if (Math.random() < 0.2) {listenerListForFewTickets.add(listener);}
+            if (Math.random() < 0.2) {listenerListForFewTickets.add(listener);}
         }
 
         map = listenerListForFewTickets.stream().collect(Collectors.toMap(Listener::getNewTicket, l->l));

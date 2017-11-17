@@ -32,7 +32,17 @@ public class Main {
                 });
 
         HashSet<Listener> moreThenTwoTicketsListenerSet = FindBoughtMoreThenTwoTickets(cashMap.values().stream().collect(Collectors.toList()));
-        moreThenTwoTicketsListenerSet.stream().forEach(System.out::println);
+        moreThenTwoTicketsListenerSet.stream().forEachOrdered(System.out::println);
+
+        HashSet<Cheater> cheaters = new HashSet<>();
+        for (Listener listener : moreThenTwoTicketsListenerSet) {
+            cheaters.add(new Cheater(listener));
+            cheaters.add(new Cheater(listener));
+        }
+
+        cheaters.stream().forEachOrdered(System.out::println);
+
+
     }
 
     public static void defineTheWinners(Map<Ticket, Listener> map, List<Listener> listenerList) {
