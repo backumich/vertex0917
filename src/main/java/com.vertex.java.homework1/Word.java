@@ -1,7 +1,13 @@
+package com.vertex.java.homework1;
+
 import java.util.ArrayList;
 
 public class Word extends Temp{
+    // TODO: 03.01.2018 static? are there should be the same lenghs among all words?
+    // Or in case it is a count of all words that were created,
+    // from OOP point of view it should not belong to word
     public static int wordCount;
+    // TODO: 03.01.2018 same here
     private ArrayList<Letter> wordList;
 
     public Word(String word) {
