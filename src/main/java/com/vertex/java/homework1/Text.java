@@ -16,15 +16,18 @@ import java.util.regex.Pattern;
 public class  Text  implements SplitCounter{
         private String text;
         private /*static*/ List <Sentense> listSentenses = new ArrayList<>();
+        // todo: in case it is useful, make it private, other way - delete it please
         Sentense sentense;
 
     public Text(String t) {
         this.text = t;
     }
 
+    // TODO: 04.01.2018 if you are not gonna use it, then don't keep it
     public Text(){
     }
 
+    // TODO: 04.01.2018 may be it would be better to count it once... in constructor may be
     public List <Sentense> getListSentenses() {
         Pattern p = Pattern.compile("[^?!.]+[?!.]|[^?!.]+[\\p{ASCII}]*");
         Matcher m = p.matcher(text);
@@ -53,6 +56,8 @@ public class  Text  implements SplitCounter{
         }
     }
 
+    // TODO: 04.01.2018 if you use returned value to print result from plase you call the method
+    // and do not print it inside the method, then method could be more cool
     public long countQuestionMark(){
         long count=
                 listSentenses.stream()

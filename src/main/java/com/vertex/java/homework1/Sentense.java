@@ -15,6 +15,7 @@ public class Sentense/* extends com.vertex.java.homework1.Text*/  implements Spl
     private Text textSent;
     private List<Sentense> listS;
 
+    // TODO: 03.01.2018 seems to be unused. It's not ok to have code in store
     public Sentense(Text t) {
         this.textSent = t;
     }
@@ -23,6 +24,7 @@ public class Sentense/* extends com.vertex.java.homework1.Text*/  implements Spl
         this.stringSent = t;
     }
 
+    // TODO: 04.01.2018 same here
     Sentense(List<Sentense> listS){
         this.listS = listS;
     }
@@ -31,6 +33,7 @@ public class Sentense/* extends com.vertex.java.homework1.Text*/  implements Spl
 //        super(t);
 //        this.stringSent = stringSent;
 //    }
+// TODO: 04.01.2018 the same here =)
     public Sentense() {
     }
 
@@ -47,6 +50,8 @@ public class Sentense/* extends com.vertex.java.homework1.Text*/  implements Spl
     }
 
 
+    // TODO: 04.01.2018 is it some magic method that do splitting and must be called before any action can be done?
+    // if so, then it must be called in constructor.
     @Override
     public void splits() {
         int countPunct = 0;
@@ -82,9 +87,13 @@ public class Sentense/* extends com.vertex.java.homework1.Text*/  implements Spl
         System.out.println("Amount of punctuation " + countPunct);
 
     }
+
+    // TODO: 04.01.2018 if you print return result and avoid printing in method, then it would be more cool
     public long countWordsStartWithP(){
         long count =
                 words.stream()
+                        // TODO: 04.01.2018 not so good to use toString because everyone can change it (it is common habbit)
+                        // and this method would brake. So it would be better to write 'special' method to get this string
                         .filter(a -> a.toString().toLowerCase().startsWith("п"))
                         .count();
         System.out.println("Number of words starting with П : " + count);
