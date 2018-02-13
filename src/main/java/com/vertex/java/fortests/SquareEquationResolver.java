@@ -12,5 +12,5 @@ public interface SquareEquationResolver {
         private double second;
     }
 
-    void resolveEquation(double a, double b, double c);
+    Solution resolveEquation(double a, double b, double c);
 }

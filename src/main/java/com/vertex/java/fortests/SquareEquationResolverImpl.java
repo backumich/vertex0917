@@ -10,12 +10,12 @@ public class SquareEquationResolverImpl implements SquareEquationResolver {
     private DiscriminantCalculator discriminantCalculator;
 
     @Override
-    public void resolveEquation(double a, double b, double c) {
+    public Solution resolveEquation(double a, double b, double c) {
         double discriminant;
         discriminant = discriminantCalculator.calculateDiscriminant(a,b,c);
 //        discriminant = getDiscriminant(a, b, c);
         double discrSquareRoot = Math.sqrt(discriminant);
-        return; //new Solution((0 - b - discrSquareRoot) / (2 * a), (0 - b + discrSquareRoot) / (2 * a));
+        return new Solution((0 - b - discrSquareRoot) / (2 * a), (0 - b + discrSquareRoot) / (2 * a));
     }
 
 
